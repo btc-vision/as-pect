@@ -1,7 +1,6 @@
 import { IAspectExports } from "../util/IAspectExports.js";
 import { Rtrace, BlockInfo, TOTAL_OVERHEAD } from "../util/rTrace.js";
 
-// @ts-ignore: Constructor is new Long(low, high, signed);
 import Long from "long";
 import { NameSection } from "../util/wasmTools.js";
 import { ReflectedValue } from "../util/ReflectedValue.js";
@@ -13,6 +12,7 @@ import { performance } from "perf_hooks";
 import { IWarning } from "./IWarning.js";
 import { Snapshot, SnapshotDiffResultType, SnapshotDiff } from "@as-pect/snapshots";
 import { StringifyReflectedValueProps } from "../util/stringifyReflectedValue.js";
+import { ResultObject } from "@assemblyscript/loader";
 
 type WASI = import("wasi").WASI;
 
@@ -31,7 +31,6 @@ const stringifyOptions: Partial<StringifyReflectedValueProps> = {
 };
 
 type InstantiateResult = {
-  // instance: WebAssembly.Instance;
   exports: IAspectExports;
   instance: WebAssembly.Instance;
 };
@@ -162,7 +161,6 @@ export class TestContext {
   public snapshotDiff: SnapshotDiff | null = null;
 
   constructor(props: ITestContextParameters) {
-    ``;
     this.rtrace = new Rtrace({
       /* istanbul ignore next */
       getMemory: () => {
@@ -232,7 +230,6 @@ export class TestContext {
    * @param err - The error.
    * @param block - BlockInfo
    */
-  // @ts-ignore
   private onRtraceError(err: Error, block: BlockInfo): void {
     /* istanbul ignore next */
     this.pushError({
@@ -256,9 +253,9 @@ export class TestContext {
    * Call this method to start the `__main()` method provided by the `as-pect` exports to start the
    * process of test collection and evaluation.
    */
-  public run(wasm: InstantiateResult): void {
+  public run(wasm: InstantiateResult | ResultObject): void {
     /* istanbul ignore next */
-    this.wasm = wasm.exports || ((<any>wasm) as IAspectExports);
+    this.wasm = wasm && 'exports' in wasm ? wasm.exports : ((<unknown>wasm) as IAspectExports);
     this.instance = wasm.instance;
 
     // start by visiting the root node
@@ -271,9 +268,7 @@ export class TestContext {
     const snapshotsPass = Array.from(snapshotDiff.results.values()).reduce((result, value) => {
       if (result) {
         return (
-          // @ts-ignore
           value.type === SnapshotDiffResultType.Added ||
-          // @ts-ignore
           value.type === SnapshotDiffResultType.NoChange
         );
       }
@@ -498,7 +493,7 @@ export class TestContext {
   /** Run every before each callback in the proper order. */
   private runBeforeEach(node: TestNode): boolean {
     return node.parent
-      ? //run parents first and bail early if the parents failed
+      ? // run parents first and bail early if the parents failed
         this.runBeforeEach(node.parent) && this.runFunctions(node.beforeEach)
       : this.runFunctions(node.beforeEach);
   }
@@ -506,7 +501,7 @@ export class TestContext {
   /** Run every before each callback in the proper order. */
   private runAfterEach(node: TestNode): boolean {
     return node.parent
-      ? //run parents first and bail early if the parents failed
+      ? // run parents first and bail early if the parents failed
         this.runAfterEach(node.parent) && this.runFunctions(node.afterEach)
       : this.runFunctions(node.afterEach);
   }
@@ -568,7 +563,7 @@ export class TestContext {
     const previousAbort = finalImports.env.abort || (() => {});
     finalImports.env.abort = (...args: any[]) => {
       previousAbort(...args);
-      // @ts-ignore
+      // @ts-expect-error - this is a private method
       this.abort(...args);
     };
     /** Override trace completely. */

@@ -18,6 +18,8 @@ module.exports = {
   // === General rules =========================================================
 
   rules: {
+    "@typescript-eslint/no-explicit-any": "warn",
+    "no-debugger": "off",
     // Omitted semicolons are hugely popular, yet within the compiler it makes
     // sense to be better safe than sorry.
     "semi": "error",
@@ -160,7 +162,7 @@ module.exports = {
       }
     },
 
-    
+
 
     // === Test rules (extends TypeScript rules) ===============================
 

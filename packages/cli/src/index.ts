@@ -6,7 +6,7 @@ import { readFileSync } from "fs";
 import url from "url";
 import chalk from "chalk";
 import { printAsciiArt } from "./asciiArt.js";
-import { promise as glob } from "glob-promise";
+import {glob} from "glob";
 import { IAspectConfig } from "./IAspectConfig.js";
 
 import { main as asc, version as ascVersion } from "assemblyscript/dist/asc.js";
@@ -14,7 +14,7 @@ import { init } from "./init.js";
 import { TestContext } from "@as-pect/core";
 import { Snapshot, SnapshotDiffResultType } from "@as-pect/snapshots";
 import { collectReporter } from "./collectReporter.js";
-import { instantiate } from "@assemblyscript/loader";
+import { instantiate, ResultObject } from "@assemblyscript/loader";
 
 // set the cli options
 // prettier-ignore
@@ -179,10 +179,15 @@ export async function asp(argv: string[]): Promise<void> {
           fileMap.set(filePath, contents);
           return contents;
         } catch (ex) {
+          console.log(`(readFile) Error reading file: ${filePath}`, ex);
           return null;
         }
       },
       writeFile(filename, contents, _baseDir) {
+        if(typeof contents === 'string') {
+          throw new Error("Expected binary data, but received string data.");
+        }
+
         files.set(filename, contents);
       },
       listFiles(dirname, baseDir) {
@@ -194,6 +199,7 @@ export async function asp(argv: string[]): Promise<void> {
           folderMap.set(folder, files);
           return files;
         } catch (ex) {
+          console.log(`(listFiles) Error reading file: ${folder}`, ex);
           return null;
         }
       },
@@ -269,15 +275,16 @@ export async function asp(argv: string[]): Promise<void> {
     const memory = new WebAssembly.Memory(descriptor);
 
     // import the module by generating the assemblyscript imports
-    const module = await aspectConfig.instantiate(
+    const module: ResultObject = await aspectConfig.instantiate(
       memory,
-      (...args: any[]) => (covers ? covers.installImports(ctx.createImports(...args)) : ctx.createImports(...args)),
+      (...args: unknown[]) => (covers ? covers.installImports(ctx.createImports(...args)) : ctx.createImports(...args)),
       instantiate,
       binary,
     );
 
     covers?.registerLoader(module);
-    ctx.run(module as any);
+    ctx.run(module);
+
     overallStats.groups += ctx.groupCount;
     overallStats.tests += ctx.testCount;
     overallStats.passedGroups += ctx.groupPassCount;
@@ -343,8 +350,8 @@ export async function asp(argv: string[]): Promise<void> {
     [Tests]: ${chalk.green(overallStats.passedTests)} / ${overallStats.tests}
    [Groups]: ${chalk.green(overallStats.passedGroups)} / ${overallStats.groups}
 [Snapshots]: ${chalk.green(overallStats.passedSnapshots)} / ${overallStats.totalSnapshots}, Added ${
-    overallStats.addedSnapshots
-  }, Changed ${overallStats.removedSnapshots}
+  overallStats.addedSnapshots
+}, Changed ${overallStats.removedSnapshots}
    [Result]: ${overallStats.pass ? chalk.green(`✔ Pass!`) : chalk.red(`❌ Fail`)}
 
    `;
