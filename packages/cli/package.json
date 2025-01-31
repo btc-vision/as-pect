@@ -37,9 +37,9 @@
   "dependencies": {
     "@btc-vision/as-covers-glue": "0.4.3",
     "@btc-vision/as-covers-transform": "0.4.3",
-    "@btc-vision/as-pect-assembly": "../assembly",
-    "@btc-vision/as-pect-core": "../core",
-    "@btc-vision/as-pect-transform": "../transform",
+    "@btc-vision/as-pect-assembly": "^8.1.0",
+    "@btc-vision/as-pect-core": "^8.1.0",
+    "@btc-vision/as-pect-transform": "^8.1.0",
     "chalk": "^5.2.0",
     "chalk-template": "^0.4.0",
     "commander": "^9.4.1",

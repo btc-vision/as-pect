@@ -41,8 +41,8 @@
   },
   "homepage": "https://github.com/jtenner/as-pect#readme",
   "dependencies": {
-    "@btc-vision/as-pect-assembly": "../assembly",
-    "@btc-vision/as-pect-snapshots": "../snapshots",
+    "@btc-vision/as-pect-assembly": "^8.1.0",
+    "@btc-vision/as-pect-snapshots": "^8.1.0",
     "@assemblyscript/loader": "^0.27.32",
     "assemblyscript": "^0.27.32",
     "chalk": "^5.2.0",
