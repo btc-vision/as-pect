@@ -1,5 +1,5 @@
 {
-  "name": "@as-pect/assembly",
+  "name": "@btc-vision/as-pect-assembly",
   "version": "8.1.0",
   "description": "Write AssemblyScript tests at blazing fast speeds",
   "types": "types/as-pect.d.ts",
@@ -36,6 +36,9 @@
     "assembly/index.ts",
     "types/"
   ],
+  "dependencies": {
+    "@btc-vision/as-covers-assembly": "^0.4.2"
+  },
   "exports": {
     ".": {
       "import": "./build/release.js",

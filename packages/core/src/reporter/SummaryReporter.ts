@@ -2,7 +2,7 @@ import { TestContext } from "../test/TestContext.js";
 import { IWritable } from "../util/IWriteable.js";
 import { ReflectedValue } from "../util/ReflectedValue.js";
 import { IReporter } from "./IReporter.js";
-import { SnapshotDiffResultType } from "@as-pect/snapshots";
+import { SnapshotDiffResultType } from "@btc-vision/as-pect-snapshots";
 import { TestNode } from "../test/TestNode.js";
 import chalk from "chalk";
 

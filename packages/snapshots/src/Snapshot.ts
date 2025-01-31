@@ -105,7 +105,6 @@ export class Snapshot {
 }
 
 export function parseImageCSTElement(element: CstElement): string {
-  // @ts-ignore
-  const image = element.image as string;
+  const image = 'image' in element ? element.image as string : '';
   return image.slice(1, -1).replace("\\`", "`");
 }

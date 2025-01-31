@@ -1,5 +1,5 @@
 import { IAspectConfig } from "./IAspectConfig.js";
-import { IReporter, CombinationReporter, SummaryReporter, VerboseReporter } from "@as-pect/core";
+import { IReporter, CombinationReporter, SummaryReporter, VerboseReporter } from "@btc-vision/as-pect-core";
 import { cwd, exit, stderr } from "process";
 import { OptionValues } from "commander";
 import path from "path";
@@ -22,12 +22,12 @@ export async function getReporter(opts: OptionValues, aspectConfig: IAspectConfi
   }
 
   if (opts.json) {
-    const JSONReporter = (await import("@as-pect/json-reporter")).default;
+    const JSONReporter = (await import("@btc-vision/as-pect-json-reporter")).default;
     reporters.push(new JSONReporter());
   }
 
   if (opts.csv) {
-    const CSVReporter = (await import("@as-pect/csv-reporter")).default;
+    const CSVReporter = (await import("@btc-vision/as-pect-csv-reporter")).default;
     reporters.push(new CSVReporter());
   }
 

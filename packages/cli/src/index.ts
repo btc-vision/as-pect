@@ -1,20 +1,20 @@
 import { program } from "commander";
 import process, { stdout } from "process";
 import path from "path";
-import { existsSync, promises as fs, readdirSync } from "fs";
+import { existsSync, promises as fs, readdirSync, lstatSync } from "fs";
 import { readFileSync } from "fs";
 import url from "url";
 import chalk from "chalk";
 import { printAsciiArt } from "./asciiArt.js";
-import { promise as glob } from "glob-promise";
+import {glob} from "glob";
 import { IAspectConfig } from "./IAspectConfig.js";
 
 import { main as asc, version as ascVersion } from "assemblyscript/dist/asc.js";
 import { init } from "./init.js";
-import { TestContext } from "@as-pect/core";
-import { Snapshot, SnapshotDiffResultType } from "@as-pect/snapshots";
+import { TestContext } from "@btc-vision/as-pect-core";
+import { Snapshot, SnapshotDiffResultType } from "@btc-vision/as-pect-snapshots";
 import { collectReporter } from "./collectReporter.js";
-import { instantiate } from "@assemblyscript/loader";
+import { instantiate, ResultObject } from "@assemblyscript/loader";
 
 // set the cli options
 // prettier-ignore
@@ -112,7 +112,7 @@ export async function asp(argv: string[]): Promise<void> {
   }
 
   // Now collect all the additional included entry points.
-  // This must include an entry that ends with `@as-pect/assembly/assembly/index.ts`
+  // This must include an entry that ends with `@btc-vision/as-pect-assembly/assembly/index.ts`
   const includedGlobs = [] as string[];
 
   // opts.I is a comma seperated list of globs
@@ -155,11 +155,11 @@ export async function asp(argv: string[]): Promise<void> {
   // coverage happens on a global level
 
   /** Potentailly enable code coverage, using the configurated globs */
-  let covers: import("@as-covers/glue").Covers | null = null;
+  let covers: import("@btc-vision/as-covers-glue").Covers | null = null;
   const coverageFiles = aspectConfig.coverage || [];
   if (coverageFiles.length !== 0) {
     log("Using coverage: " + coverageFiles.join(", "));
-    const Covers = (await import("@as-covers/glue")).Covers;
+    const Covers = (await import("@btc-vision/as-covers-glue")).Covers;
     covers = new Covers({ files: coverageFiles });
   }
 
@@ -172,9 +172,18 @@ export async function asp(argv: string[]): Promise<void> {
 
     const compiled = await asc(ascArgs, {
       readFile(filename, baseDir) {
-        const filePath = path.join(baseDir, filename);
+        let filePath = path.join(baseDir, filename);
         if (fileMap.has(filePath)) return fileMap.get(filePath)!;
         try {
+          if(filePath.split('node_modules').length >= 3) {
+            return null;
+          }
+
+          const stats = lstatSync(filePath);
+          if(stats.isDirectory()) {
+            filePath = path.join(filePath, "index.ts");
+          }
+
           const contents = readFileSync(filePath, "utf8");
           fileMap.set(filePath, contents);
           return contents;
@@ -183,6 +192,10 @@ export async function asp(argv: string[]): Promise<void> {
         }
       },
       writeFile(filename, contents, _baseDir) {
+        if(typeof contents === 'string') {
+          contents = new TextEncoder().encode(contents);
+        }
+
         files.set(filename, contents);
       },
       listFiles(dirname, baseDir) {
@@ -194,6 +207,7 @@ export async function asp(argv: string[]): Promise<void> {
           folderMap.set(folder, files);
           return files;
         } catch (ex) {
+          console.log(`(listFiles) Error reading file: ${folder}`, ex);
           return null;
         }
       },
@@ -269,15 +283,16 @@ export async function asp(argv: string[]): Promise<void> {
     const memory = new WebAssembly.Memory(descriptor);
 
     // import the module by generating the assemblyscript imports
-    const module = await aspectConfig.instantiate(
+    const module: ResultObject = await aspectConfig.instantiate(
       memory,
-      (...args: any[]) => (covers ? covers.installImports(ctx.createImports(...args)) : ctx.createImports(...args)),
+      (...args: unknown[]) => (covers ? covers.installImports(ctx.createImports(...args)) : ctx.createImports(...args)),
       instantiate,
       binary,
     );
 
     covers?.registerLoader(module);
-    ctx.run(module as any);
+    ctx.run(module);
+
     overallStats.groups += ctx.groupCount;
     overallStats.tests += ctx.testCount;
     overallStats.passedGroups += ctx.groupPassCount;
@@ -343,8 +358,8 @@ export async function asp(argv: string[]): Promise<void> {
     [Tests]: ${chalk.green(overallStats.passedTests)} / ${overallStats.tests}
    [Groups]: ${chalk.green(overallStats.passedGroups)} / ${overallStats.groups}
 [Snapshots]: ${chalk.green(overallStats.passedSnapshots)} / ${overallStats.totalSnapshots}, Added ${
-    overallStats.addedSnapshots
-  }, Changed ${overallStats.removedSnapshots}
+  overallStats.addedSnapshots
+}, Changed ${overallStats.removedSnapshots}
    [Result]: ${overallStats.pass ? chalk.green(`✔ Pass!`) : chalk.red(`❌ Fail`)}
 
    `;

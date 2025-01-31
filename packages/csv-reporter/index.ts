@@ -1,7 +1,7 @@
 import { Stringifier, stringify } from "csv-stringify";
 import { WriteStream, createWriteStream } from "fs";
 import { basename, extname, dirname, join } from "path";
-import { TestNodeType, TestContext, IReporter, TestNode, IWritable } from "@as-pect/core";
+import { TestNodeType, TestContext, IReporter, TestNode, IWritable } from "@btc-vision/as-pect-core";
 
 /**
  * This is a list of all the columns in the exported csv file.

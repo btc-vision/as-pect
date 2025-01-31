@@ -2,7 +2,7 @@ import { VerboseReporterWrapper } from "./setup/VerboseReporterWrapper.js";
 import { TestContext } from "../src/index.js";
 import { promises as fs } from "fs";
 import { instantiate } from "@assemblyscript/loader";
-import { Snapshot } from "@as-pect/snapshots";
+import { Snapshot } from "@btc-vision/as-pect-snapshots";
 
 test("snapshots", async () => {
   const binary = await fs.readFile("./assembly/jest-reporter-snapshot.wasm");

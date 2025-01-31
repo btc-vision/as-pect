@@ -35,7 +35,6 @@ export class VerboseReporterWrapper extends VerboseReporter {
   onGroupFinish(group: TestNode): void {
     this.writer.reset();
     removeStackTraces(group);
-    // @ts-ignore
     super.onGroupFinish(group);
     const result = stripAnsi(this.writer.result);
     this.addSnapshot(`onGroupEnd ${group.name}`, result);

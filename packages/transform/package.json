@@ -1,5 +1,5 @@
 {
-  "name": "@as-pect/transform",
+  "name": "@btc-vision/as-pect-transform",
   "version": "8.1.0",
   "description": "The transform used by the as-pect core and assembly packages to enable strict equality.",
   "main": "lib/index.js",
@@ -10,10 +10,10 @@
   "author": "Joshua Tenner <tenner.joshua@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "assemblyscript": "^0.27.2"
+    "assemblyscript": "^0.27.32"
   },
   "devDependencies": {
-    "typescript": "^4.9.4"
+    "typescript": "^5.7.3"
   },
   "files": [
     "lib/",

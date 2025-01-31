@@ -217,7 +217,7 @@ export class Expectation<T> {
     // Compare float types
     if (isFloat(actual)) {
       assert(
-        i32(!isNaN(expected)),
+        i32(!isNaN(expected as number)),
         "Value comparison fails, expected value is NaN.",
       );
       assert(
@@ -265,7 +265,7 @@ export class Expectation<T> {
     // Compare float types
     if (isFloat(actual)) {
       assert(
-        i32(!isNaN(expected)),
+        i32(!isNaN(expected as number)),
         "Value comparison fails, expected value is NaN.",
       );
       assert(
@@ -309,7 +309,7 @@ export class Expectation<T> {
       );
     } else if (isFloat(actual)) {
       assert(
-        i32(!isNaN(expected)),
+        i32(!isNaN(expected as number)),
         "Value comparison fails, expected value is NaN.",
       );
       assert(
@@ -355,7 +355,7 @@ export class Expectation<T> {
 
     if (isFloat(actual)) {
       assert(
-        i32(!isNaN(expected)),
+        i32(!isNaN(expected as number)),
         "Value comparison fails, expected value is NaN.",
       );
       assert(
@@ -422,7 +422,7 @@ export class Expectation<T> {
       "toBeCloseTo assertion fails because a actual value is not finite",
     );
     assert(
-      i32(isFinite(expected)),
+      i32(isFinite(expected as number)),
       "toBeCloseTo assertion fails because expected value is not finite.",
     );
 

@@ -1,5 +1,5 @@
 {
-  "name": "@as-pect/cli",
+  "name": "@btc-vision/as-pect-cli",
   "version": "8.1.0",
   "description": "Write AssemblyScript tests at blazing fast speeds",
   "exports": {
@@ -8,7 +8,7 @@
   "types": "lib/index.d.ts",
   "type": "module",
   "scripts": {
-    "rimraf": "rimraf lib/*",
+    "rimraf": "rimraf lib/",
     "package:version-update": "ncu -u",
     "test": "exit 0",
     "tsc:cli": "run-s rimraf tsc",
@@ -35,26 +35,25 @@
   },
   "homepage": "https://github.com/jtenner/as-pect#readme",
   "dependencies": {
-    "@as-covers/core": "0.4.2",
-    "@as-covers/transform": "0.4.2",
-    "@as-pect/assembly": "^8.1.0",
-    "@as-pect/core": "^8.1.0",
-    "@as-pect/transform": "^8.1.0",
+    "@btc-vision/as-covers-glue": "0.4.3",
+    "@btc-vision/as-covers-transform": "0.4.3",
+    "@btc-vision/as-pect-assembly": "^8.1.0",
+    "@btc-vision/as-pect-core": "^8.1.0",
+    "@btc-vision/as-pect-transform": "^8.1.0",
     "chalk": "^5.2.0",
     "chalk-template": "^0.4.0",
     "commander": "^9.4.1",
-    "glob": "^8.0.3",
-    "glob-promise": "^5.0.0"
+    "glob": "^11.0.1"
   },
   "peerDependencies": {
-    "assemblyscript": "^0.27.2"
+    "assemblyscript": "^0.27.32"
   },
   "devDependencies": {
-    "assemblyscript": "^0.27.2"
+    "assemblyscript": "^0.27.32"
   },
   "optionalDependencies": {
-    "@as-pect/csv-reporter": "^8.1.0",
-    "@as-pect/json-reporter": "^8.1.0"
+    "@btc-vision/as-pect-csv-reporter": "^8.1.0",
+    "@btc-vision/as-pect-json-reporter": "^8.1.0"
   },
   "files": [
     "init/",

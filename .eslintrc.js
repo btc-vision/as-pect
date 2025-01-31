@@ -18,6 +18,10 @@ module.exports = {
   // === General rules =========================================================
 
   rules: {
+    "@typescript-eslint/no-explicit-any": "warn",
+    "no-debugger": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "spaced-comment": "off",
     // Omitted semicolons are hugely popular, yet within the compiler it makes
     // sense to be better safe than sorry.
     "semi": "error",
@@ -33,12 +37,6 @@ module.exports = {
         "ConditionalExpression > * > *",
         "ConditionalExpression > * > * > *"
       ]
-    }],
-
-    // This is mostly visual style, making comments look uniform.
-    "spaced-comment": ["error", "always", {
-      "markers": ["/"],   // triple-slash
-      "exceptions": ["/"] // all slashes
     }],
 
     // This tends to be annoying as it encourages developers to make everything
@@ -160,7 +158,7 @@ module.exports = {
       }
     },
 
-    
+
 
     // === Test rules (extends TypeScript rules) ===============================
 

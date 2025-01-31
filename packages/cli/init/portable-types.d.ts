@@ -1,1 +1,1 @@
-/// <reference types="@as-pect/assembly/types/as-pect.portable" />
+/// <reference types="@btc-vision/as-pect-assembly/types/as-pect.portable" />
