@@ -27,7 +27,7 @@
     "pretest:pass-fail": "asc --debug --outFile assembly/jest-pass-fail.wasm --textFile assembly/jest-pass-fail.wat --exportStart _start ./assembly/jest-pass-fail.ts ../assembly/assembly/index.ts --transform @as-pect/transform --use ASC_RTRACE=1",
     "pretest:group-filter": "asc --debug --outFile assembly/jest-filter.wasm --textFile assembly/jest-filter.wat --exportStart _start ./assembly/jest-filter.ts ../assembly/assembly/index.ts --transform @as-pect/transform",
     "pretest:log": "asc --debug --outFile assembly/jest-log.wasm --textFile assembly/jest-log.wat --exportStart _start ./assembly/jest-log.ts ../assembly/assembly/index.ts --exportTable --use ASC_RTRACE=1 --transform @as-pect/transform",
-    "rimraf": "rimraf lib/*",
+    "rimraf": "rimraf lib/",
     "test:ci": "node --experimental-wasi-unstable-preview1 --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
     "test": "node --experimental-wasi-unstable-preview1 --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
     "test:log": "node --experimental-wasi-unstable-preview1 --experimental-vm-modules ../../node_modules/jest/bin/jest.js log",
@@ -41,20 +41,20 @@
   },
   "homepage": "https://github.com/jtenner/as-pect#readme",
   "dependencies": {
-    "@as-pect/assembly": "^8.1.0",
-    "@as-pect/snapshots": "^8.1.0",
-    "@assemblyscript/loader": "^0.25.0",
-    "assemblyscript": "^0.27.2",
+    "@as-pect/assembly": "../assembly",
+    "@as-pect/snapshots": "../snapshots",
+    "@assemblyscript/loader": "^0.27.32",
+    "assemblyscript": "^0.27.32",
     "chalk": "^5.2.0",
     "chalk-template": "^0.4.0",
-    "long": "^5.2.1"
+    "long": "^5.2.4"
   },
   "files": [
     "init/",
     "lib/"
   ],
   "devDependencies": {
-    "jest": "^29.3.1",
-    "ts-jest": "^29.0.3"
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
   }
 }
