@@ -1,7 +1,7 @@
 import { program } from "commander";
 import process, { stdout } from "process";
 import path from "path";
-import { existsSync, promises as fs, readdirSync } from "fs";
+import { existsSync, promises as fs, readdirSync, lstatSync } from "fs";
 import { readFileSync } from "fs";
 import url from "url";
 import chalk from "chalk";
@@ -172,14 +172,22 @@ export async function asp(argv: string[]): Promise<void> {
 
     const compiled = await asc(ascArgs, {
       readFile(filename, baseDir) {
-        const filePath = path.join(baseDir, filename);
+        let filePath = path.join(baseDir, filename);
         if (fileMap.has(filePath)) return fileMap.get(filePath)!;
         try {
+          if(filePath.split('node_modules').length >= 3) {
+            return null;
+          }
+
+          const stats = lstatSync(filePath);
+          if(stats.isDirectory()) {
+            filePath = path.join(filePath, "index.ts");
+          }
+
           const contents = readFileSync(filePath, "utf8");
           fileMap.set(filePath, contents);
           return contents;
         } catch (ex) {
-          console.log(`(readFile) Error reading file: ${filePath}`, ex);
           return null;
         }
       },
