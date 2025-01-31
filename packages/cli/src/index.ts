@@ -185,7 +185,7 @@ export async function asp(argv: string[]): Promise<void> {
       },
       writeFile(filename, contents, _baseDir) {
         if(typeof contents === 'string') {
-          throw new Error("Expected binary data, but received string data.");
+          contents = new TextEncoder().encode(contents);
         }
 
         files.set(filename, contents);
