@@ -10,7 +10,7 @@ import { TestNodeType } from "../util/TestNodeType.js";
 import { IReporter } from "../reporter/IReporter.js";
 import { performance } from "perf_hooks";
 import { IWarning } from "./IWarning.js";
-import { Snapshot, SnapshotDiffResultType, SnapshotDiff } from "@as-pect/snapshots";
+import { Snapshot, SnapshotDiffResultType, SnapshotDiff } from "@btc-vision/as-pect-snapshots";
 import { StringifyReflectedValueProps } from "../util/stringifyReflectedValue.js";
 import { ResultObject } from "@assemblyscript/loader";
 

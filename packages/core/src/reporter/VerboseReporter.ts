@@ -4,7 +4,7 @@ import { ReflectedValue } from "../util/ReflectedValue.js";
 import { TestNodeType } from "../util/TestNodeType.js";
 import { TestNode } from "../test/TestNode.js";
 import { IReporter } from "./IReporter.js";
-import { SnapshotDiffResultType } from "@as-pect/snapshots";
+import { SnapshotDiffResultType } from "@btc-vision/as-pect-snapshots";
 import { StringifyReflectedValueProps } from "../util/stringifyReflectedValue.js";
 import chalk from "chalk";
 

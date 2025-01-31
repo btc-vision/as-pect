@@ -1,5 +1,5 @@
 {
-  "name": "@as-pect/csv-reporter",
+  "name": "@btc-vision/as-pect-csv-reporter",
   "version": "8.1.0",
   "description": "csv reporter for as-pect",
   "main": "lib/index.js",
@@ -19,6 +19,6 @@
     "csv-stringify": "^6.5.2"
   },
   "dependencies": {
-    "@as-pect/core": "^8.1.0"
+    "@btc-vision/as-pect-core": "^8.1.0"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@as-pect/json-reporter",
+  "name": "@btc-vision/as-pect-json-reporter",
   "version": "8.1.0",
   "description": "Json reporter for as-pect",
   "main": "lib/index.js",
@@ -16,6 +16,6 @@
   "author": "Joshua Tenner",
   "license": "MIT",
   "dependencies": {
-    "@as-pect/core": "../core"
+    "@btc-vision/as-pect-core": "../core"
   }
 }

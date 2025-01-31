@@ -1,4 +1,4 @@
-# jtenner/as-pect - @as-pect/cli
+# jtenner/as-pect - @btc-vision/as-pect-cli
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/jtenner/as-pect.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/jtenner/as-pect.svg?branch=master)](https://travis-ci.org/jtenner/as-pect)

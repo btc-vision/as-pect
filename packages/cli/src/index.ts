@@ -11,8 +11,8 @@ import { IAspectConfig } from "./IAspectConfig.js";
 
 import { main as asc, version as ascVersion } from "assemblyscript/dist/asc.js";
 import { init } from "./init.js";
-import { TestContext } from "@as-pect/core";
-import { Snapshot, SnapshotDiffResultType } from "@as-pect/snapshots";
+import { TestContext } from "@btc-vision/as-pect-core";
+import { Snapshot, SnapshotDiffResultType } from "@btc-vision/as-pect-snapshots";
 import { collectReporter } from "./collectReporter.js";
 import { instantiate, ResultObject } from "@assemblyscript/loader";
 
@@ -112,7 +112,7 @@ export async function asp(argv: string[]): Promise<void> {
   }
 
   // Now collect all the additional included entry points.
-  // This must include an entry that ends with `@as-pect/assembly/assembly/index.ts`
+  // This must include an entry that ends with `@btc-vision/as-pect-assembly/assembly/index.ts`
   const includedGlobs = [] as string[];
 
   // opts.I is a comma seperated list of globs
@@ -155,11 +155,11 @@ export async function asp(argv: string[]): Promise<void> {
   // coverage happens on a global level
 
   /** Potentailly enable code coverage, using the configurated globs */
-  let covers: import("@as-covers/glue").Covers | null = null;
+  let covers: import("@btc-vision/as-covers-glue").Covers | null = null;
   const coverageFiles = aspectConfig.coverage || [];
   if (coverageFiles.length !== 0) {
     log("Using coverage: " + coverageFiles.join(", "));
-    const Covers = (await import("@as-covers/glue")).Covers;
+    const Covers = (await import("@btc-vision/as-covers-glue")).Covers;
     covers = new Covers({ files: coverageFiles });
   }
 

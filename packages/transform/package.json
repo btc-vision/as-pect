@@ -1,5 +1,5 @@
 {
-  "name": "@as-pect/transform",
+  "name": "@btc-vision/as-pect-transform",
   "version": "8.1.0",
   "description": "The transform used by the as-pect core and assembly packages to enable strict equality.",
   "main": "lib/index.js",

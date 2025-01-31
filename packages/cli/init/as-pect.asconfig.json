@@ -1,11 +1,11 @@
 {
   "targets": {
     "coverage": {
-      "lib": ["./node_modules/@as-covers/assembly/index.ts"],
-      "transform": ["@as-covers/transform", "@as-pect/transform"]
+      "lib": ["./node_modules/@btc-vision/as-covers-assembly/index.ts"],
+      "transform": ["@btc-vision/as-covers-transform", "@btc-vision/as-pect-transform"]
     },
     "noCoverage": {
-      "transform": ["@as-pect/transform"]
+      "transform": ["@btc-vision/as-pect-transform"]
     }
   },
   "options": {
@@ -20,5 +20,5 @@
     "exportTable": true
   },
   "extends": "./asconfig.json",
-  "entries": ["./node_modules/@as-pect/assembly/assembly/index.ts"]
+  "entries": ["./node_modules/@btc-vision/as-pect-assembly/assembly/index.ts"]
 }

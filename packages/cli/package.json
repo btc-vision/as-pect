@@ -1,5 +1,5 @@
 {
-  "name": "@as-pect/cli",
+  "name": "@btc-vision/as-pect-cli",
   "version": "8.1.0",
   "description": "Write AssemblyScript tests at blazing fast speeds",
   "exports": {
@@ -35,11 +35,11 @@
   },
   "homepage": "https://github.com/jtenner/as-pect#readme",
   "dependencies": {
-    "@as-covers/core": "0.4.2",
-    "@as-covers/transform": "0.4.2",
-    "@as-pect/assembly": "../assembly",
-    "@as-pect/core": "../core",
-    "@as-pect/transform": "../transform",
+    "@btc-vision/as-covers-glue": "0.4.3",
+    "@btc-vision/as-covers-transform": "0.4.3",
+    "@btc-vision/as-pect-assembly": "../assembly",
+    "@btc-vision/as-pect-core": "../core",
+    "@btc-vision/as-pect-transform": "../transform",
     "chalk": "^5.2.0",
     "chalk-template": "^0.4.0",
     "commander": "^9.4.1",
@@ -52,8 +52,8 @@
     "assemblyscript": "^0.27.32"
   },
   "optionalDependencies": {
-    "@as-pect/csv-reporter": "^8.1.0",
-    "@as-pect/json-reporter": "^8.1.0"
+    "@btc-vision/as-pect-csv-reporter": "^8.1.0",
+    "@btc-vision/as-pect-json-reporter": "^8.1.0"
   },
   "files": [
     "init/",
