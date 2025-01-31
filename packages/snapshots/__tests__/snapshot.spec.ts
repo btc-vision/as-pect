@@ -1,4 +1,4 @@
-import { Snapshot } from "../lib/index.js";
+import { Snapshot } from "../lib";
 
 const inputA = `
 exports[\`A\`] = \`SomeA {
