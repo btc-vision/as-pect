@@ -1,6 +1,6 @@
 {
   "name": "@btc-vision/as-pect-snapshots",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "description": "A package for dealing with snapshots",
   "main": "lib/index.js",
   "type": "module",
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/nearley": "^2.11.5",
     "jest": "^29.7.0",
-    "ts-jest": "^29.2.5"
+    "ts-jest": "^29.4.0"
   },
   "dependencies": {
     "chevrotain": "^11.0.3",

@@ -1,6 +1,6 @@
 {
   "name": "@btc-vision/as-pect-json-reporter",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "description": "Json reporter for as-pect",
   "main": "lib/index.js",
   "types": "lib/index.ts",

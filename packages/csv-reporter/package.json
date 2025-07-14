@@ -1,6 +1,6 @@
 {
   "name": "@btc-vision/as-pect-csv-reporter",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "description": "csv reporter for as-pect",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,9 +16,9 @@
   "author": "Joshua Tenner",
   "license": "MIT",
   "devDependencies": {
-    "csv-stringify": "^6.5.2"
+    "csv-stringify": "^6.6.0"
   },
   "dependencies": {
-    "@btc-vision/as-pect-core": "^8.1.0"
+    "@btc-vision/as-pect-core": "^8.2.0"
   }
 }

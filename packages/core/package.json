@@ -1,6 +1,6 @@
 {
   "name": "@btc-vision/as-pect-core",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "description": "Write AssemblyScript tests at blazing fast speeds",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -41,13 +41,13 @@
   },
   "homepage": "https://github.com/jtenner/as-pect#readme",
   "dependencies": {
-    "@btc-vision/as-pect-assembly": "^8.1.0",
-    "@btc-vision/as-pect-snapshots": "^8.1.0",
-    "@assemblyscript/loader": "^0.27.32",
-    "assemblyscript": "^0.27.32",
-    "chalk": "^5.2.0",
-    "chalk-template": "^0.4.0",
-    "long": "^5.2.4"
+    "@btc-vision/as-pect-assembly": "^8.2.0",
+    "@btc-vision/as-pect-snapshots": "^8.2.0",
+    "@assemblyscript/loader": "^0.28.3",
+    "assemblyscript": "^0.28.3",
+    "chalk": "^5.4.1",
+    "chalk-template": "^0.5.0",
+    "long": "^5.3.2"
   },
   "files": [
     "init/",
@@ -55,6 +55,6 @@
   ],
   "devDependencies": {
     "jest": "^29.7.0",
-    "ts-jest": "^29.2.5"
+    "ts-jest": "^29.4.0"
   }
 }

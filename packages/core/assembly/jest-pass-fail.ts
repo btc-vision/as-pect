@@ -13,8 +13,13 @@ class Vec3 {
   protected __equals(reference: Vec3 | null): bool {
     if (changetype<usize>(reference) == 0) return false;
     if (changetype<usize>(reference) == changetype<usize>(this)) return false;
+
+    if(!reference) {
+      return false;
+    }
+
     return (
-      this.x == reference!.x && this.y == reference!.y && this.z == reference!.z
+      this.x == reference.x && this.y == reference.y && this.z == reference.z
     );
   }
 }

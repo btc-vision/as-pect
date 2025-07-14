@@ -13,7 +13,14 @@ export class Vec3 {
     assert(this);
     assert(reference);
     var magnitude = this.magnitude();
-    var refmagnitude = reference!.magnitude();
+
+    if(!reference) {
+      // If reference is null, we cannot compare magnitudes.
+      // This is a design choice; you may want to throw an error instead.
+      return false;
+    }
+
+    var refmagnitude = reference.magnitude();
     return magnitude > refmagnitude;
   }
 
@@ -22,7 +29,14 @@ export class Vec3 {
     assert(this);
     assert(reference);
     var magnitude = this.magnitude();
-    var refmagnitude = reference!.magnitude();
+
+    if(!reference) {
+      // If reference is null, we cannot compare magnitudes.
+      // This is a design choice; you may want to throw an error instead.
+      return false;
+    }
+
+    var refmagnitude = reference.magnitude();
     return magnitude >= refmagnitude;
   }
 
@@ -31,7 +45,14 @@ export class Vec3 {
     assert(this);
     assert(reference);
     var magnitude = this.magnitude();
-    var refmagnitude = reference!.magnitude();
+
+    if(!reference) {
+      // If reference is null, we cannot compare magnitudes.
+      // This is a design choice; you may want to throw an error instead.
+      return false;
+    }
+
+    var refmagnitude = reference.magnitude();
     return magnitude < refmagnitude;
   }
 
@@ -40,7 +61,14 @@ export class Vec3 {
     assert(this);
     assert(reference);
     var magnitude = this.magnitude();
-    var refmagnitude = reference!.magnitude();
+
+    if(!reference) {
+      // If reference is null, we cannot compare magnitudes.
+      // This is a design choice; you may want to throw an error instead.
+      return false;
+    }
+
+    var refmagnitude = reference.magnitude();
     return magnitude <= refmagnitude;
   }
 
