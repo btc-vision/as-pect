@@ -32,5 +32,5 @@ Other Contributors:
 
 ## Special Thanks
 
-Special thanks to the [AssemblyScript](https://github.com/AssemblyScript/assemblyscript)
+Special thanks to the [AssemblyScript](https://github.com/@btc-vision/assemblyscript/assemblyscript)
 team for creating AssemblyScript itself.

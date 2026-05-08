@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/// <reference path="../../../node_modules/assemblyscript/std/assembly/rt/index.d.ts" />
+/// <reference path="../../../node_modules/@btc-vision/assemblyscript/std/assembly/rt/index.d.ts" />
 /// <reference path="../types/as-pect.d.ts" />
 import { expect, Expectation } from "./internal/Expectation";
 import {

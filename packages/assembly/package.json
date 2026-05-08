@@ -1,6 +1,6 @@
 {
   "name": "@btc-vision/as-pect-assembly",
-  "version": "8.2.0",
+  "version": "8.3.0",
   "description": "Write AssemblyScript tests at blazing fast speeds",
   "types": "types/as-pect.d.ts",
   "type": "module",
