@@ -2,7 +2,7 @@
   "name": "as-pect",
   "description": "Write AssemblyScript tests at blazing fast speeds",
   "scripts": {
-    "coveralls": "cat ./packages/core/coverage/lcov.info | coveralls",
+    "coveralls": "cat ./packages/core/coverage/lcov.info | coveralls-next",
     "jest": "jest",
     "test": "run-s tsc:all test:all",
     "test:update-snapshots": "lerna run test:update-snapshots",
@@ -39,7 +39,7 @@
     "@types/node": "^25.6.2",
     "@typescript-eslint/eslint-plugin": "^8.59.2",
     "@typescript-eslint/parser": "^8.59.2",
-    "coveralls": "^3.1.1",
+    "coveralls-next": "^6.0.1",
     "eslint": "^10.3.0",
     "jest": "^30.4.0",
     "lerna": "^9.0.7",
@@ -53,5 +53,13 @@
   },
   "dependencies": {
     "line-column": "^1.0.2"
+  },
+  "overrides": {
+    "axios": "^1.16.0",
+    "follow-redirects": "^1.16.0",
+    "yaml": "^2.8.4",
+    "nx": {
+      "brace-expansion": "5.0.5"
+    }
   }
 }
