@@ -1,6 +1,6 @@
 import { VerboseReporter, TestNode, TestContext } from "../../src/index.js";
-import stripAnsi from "strip-ansi";
 import { removeStackTraces } from "./removeStackTraces.js";
+import { stripAnsi } from "../util.js";
 
 export class VerboseReporterWrapper extends VerboseReporter {
   public writer: any;

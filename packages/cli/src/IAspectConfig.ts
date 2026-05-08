@@ -1,5 +1,5 @@
 import { WASIOptions } from "wasi";
-import { ResultObject } from "@assemblyscript/loader";
+import { ResultObject } from "@btc-vision/as-loader";
 
 export interface IAspectConfig {
   coverage?: string[];
@@ -12,7 +12,7 @@ export interface IAspectConfig {
   instantiate(
     memory: WebAssembly.Memory,
     createImports: (...args: any[]) => Promise<ResultObject>,
-    instantiate: typeof import("@assemblyscript/loader").instantiate,
+    instantiate: typeof import("@btc-vision/as-loader").instantiate,
     binary: Uint8Array,
   ): Promise<ResultObject>;
 }

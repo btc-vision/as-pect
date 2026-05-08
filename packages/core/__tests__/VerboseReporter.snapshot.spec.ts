@@ -1,7 +1,7 @@
 import { VerboseReporterWrapper } from "./setup/VerboseReporterWrapper.js";
 import { TestContext } from "../src/index.js";
 import { promises as fs } from "fs";
-import { instantiate } from "@assemblyscript/loader";
+import { instantiate } from "@btc-vision/as-loader";
 import { Snapshot } from "@btc-vision/as-pect-snapshots";
 
 test("snapshots", async () => {

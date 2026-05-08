@@ -2,7 +2,7 @@ import { TestContext } from "../src/test/TestContext.js";
 import { StringifyReflectedValueProps } from "../src/util/stringifyReflectedValue.js";
 import { promises as fs } from "fs";
 import { EmptyReporter } from "../src/reporter/EmptyReporter.js";
-import { instantiate } from "@assemblyscript/loader";
+import { instantiate } from "@btc-vision/as-loader";
 
 const stringifyOptions: Partial<StringifyReflectedValueProps> = {
   indent: 2,

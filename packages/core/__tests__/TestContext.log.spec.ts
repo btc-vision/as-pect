@@ -6,7 +6,7 @@ import {
 } from "../src/index.js";
 import { StringifyReflectedValueProps } from "../src/util/stringifyReflectedValue.js";
 import { promises as fs } from "fs";
-import { instantiate } from "@assemblyscript/loader";
+import { instantiate } from "@btc-vision/as-loader";
 
 const binary = fs.readFile("./assembly/jest-log.wasm");
 

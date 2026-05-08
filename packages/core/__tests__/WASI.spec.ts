@@ -1,7 +1,7 @@
 import { TestContext } from "../src";
 import { VerboseReporterWrapper } from "./setup/VerboseReporterWrapper.js";
 import { promises as fs } from "fs";
-import { instantiate } from "@assemblyscript/loader";
+import { instantiate } from "@btc-vision/as-loader";
 import { WASI } from "wasi";
 import { jest } from '@jest/globals';
 import { WASIOptions } from "node:wasi";

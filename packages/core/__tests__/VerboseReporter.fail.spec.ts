@@ -1,7 +1,7 @@
 import { VerboseReporterWrapper } from "./setup/VerboseReporterWrapper.js";
 import { TestContext } from "../src/index.js";
 import { promises as fs } from "fs";
-import { instantiate } from "@assemblyscript/loader";
+import { instantiate } from "@btc-vision/as-loader";
 
 test("snapshots", async () => {
   const binary = await fs.readFile("./assembly/jest-reporter-fail.wasm");

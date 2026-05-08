@@ -12,7 +12,7 @@ import { performance } from "perf_hooks";
 import { IWarning } from "./IWarning.js";
 import { Snapshot, SnapshotDiffResultType, SnapshotDiff } from "@btc-vision/as-pect-snapshots";
 import { StringifyReflectedValueProps } from "../util/stringifyReflectedValue.js";
-import { ResultObject } from "@assemblyscript/loader";
+import { ResultObject } from "@btc-vision/as-loader";
 
 type WASI = import("wasi").WASI;
 

@@ -14,7 +14,7 @@ import { init } from "./init.js";
 import { TestContext } from "@btc-vision/as-pect-core";
 import { Snapshot, SnapshotDiffResultType } from "@btc-vision/as-pect-snapshots";
 import { collectReporter } from "./collectReporter.js";
-import { instantiate, ResultObject } from "@assemblyscript/loader";
+import { instantiate, ResultObject } from "@btc-vision/as-loader";
 
 // set the cli options
 // prettier-ignore

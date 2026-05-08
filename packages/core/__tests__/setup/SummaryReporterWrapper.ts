@@ -1,6 +1,6 @@
 import { SummaryReporter, TestNode, TestContext } from "../../src/index.js";
-import stripAnsi from "strip-ansi";
 import { removeStackTraces } from "./removeStackTraces.js";
+import { stripAnsi } from "../util.js";
 
 export class SummaryReporterWrapper extends SummaryReporter {
   public writer: any;

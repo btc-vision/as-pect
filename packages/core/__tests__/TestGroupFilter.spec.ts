@@ -1,5 +1,5 @@
 import { TestContext, TestNodeType, EmptyReporter } from "../src/index.js";
-import { ASUtil, instantiate } from "@assemblyscript/loader";
+import { ASUtil, instantiate } from "@btc-vision/as-loader";
 import { IAspectExports } from "../src/util/IAspectExports.js";
 import { promises as fs } from "fs";
 
