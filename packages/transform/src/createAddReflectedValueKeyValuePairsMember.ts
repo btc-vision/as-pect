@@ -12,7 +12,7 @@ import {
   NodeKind,
   AssertionKind,
   Token,
-} from "assemblyscript/dist/assemblyscript.js";
+} from "@btc-vision/assemblyscript";
 
 import { createGenericTypeParameter } from "./createGenericTypeParameter.js";
 import { djb2Hash } from "./hash.js";

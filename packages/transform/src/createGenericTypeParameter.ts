@@ -1,4 +1,4 @@
-import { TypeNode, Range } from "assemblyscript/dist/assemblyscript.js";
+import { TypeNode, Range } from "@btc-vision/assemblyscript";
 
 /**
  * This method makes a generic named parameter.

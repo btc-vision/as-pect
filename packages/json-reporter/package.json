@@ -3,7 +3,7 @@
   "version": "8.2.0",
   "description": "Json reporter for as-pect",
   "main": "lib/index.js",
-  "types": "lib/index.ts",
+  "types": "lib/index.d.ts",
   "type": "module",
   "scripts": {
     "tsc:all": "tsc",
@@ -16,6 +16,6 @@
   "author": "Joshua Tenner",
   "license": "MIT",
   "dependencies": {
-    "@btc-vision/as-pect-core": "../core"
+    "@btc-vision/as-pect-core": "^8.2.0"
   }
 }

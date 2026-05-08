@@ -1,5 +1,5 @@
-import { Parser } from "assemblyscript/dist/assemblyscript.js";
-import { Transform } from "assemblyscript/dist/transform.js";
+import { Parser } from "@btc-vision/assemblyscript";
+import { Transform } from "@btc-vision/assemblyscript/transform";
 
 /**
  * Just an empty transformer.

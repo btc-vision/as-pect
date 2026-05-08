@@ -17,7 +17,7 @@ import {
   NodeKind,
   Token,
   ParameterKind,
-} from "assemblyscript/dist/assemblyscript.js";
+} from "@btc-vision/assemblyscript";
 
 /**
  * This method creates a single FunctionDeclaration that allows Reflect.equals

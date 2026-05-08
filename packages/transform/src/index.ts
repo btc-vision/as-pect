@@ -1,4 +1,4 @@
-import { Transform } from "assemblyscript/dist/transform.js";
+import { Transform } from "@btc-vision/assemblyscript/transform";
 
 import {
   ClassDeclaration,
@@ -7,7 +7,7 @@ import {
   Parser,
   Statement,
   Source,
-} from "assemblyscript/dist/assemblyscript.js";
+} from "@btc-vision/assemblyscript";
 
 import { createStrictEqualsMember } from "./createStrictEqualsMember.js";
 import { createAddReflectedValueKeyValuePairsMember } from "./createAddReflectedValueKeyValuePairsMember.js";

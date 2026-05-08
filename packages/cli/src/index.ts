@@ -9,7 +9,7 @@ import { printAsciiArt } from "./asciiArt.js";
 import {glob} from "glob";
 import { IAspectConfig } from "./IAspectConfig.js";
 
-import { main as asc, version as ascVersion } from "assemblyscript/dist/asc.js";
+import { main as asc, version as ascVersion } from "@btc-vision/assemblyscript/asc";
 import { init } from "./init.js";
 import { TestContext } from "@btc-vision/as-pect-core";
 import { Snapshot, SnapshotDiffResultType } from "@btc-vision/as-pect-snapshots";
