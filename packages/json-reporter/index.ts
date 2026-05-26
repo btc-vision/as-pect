@@ -14,7 +14,7 @@ export default class JSONReporter implements IReporter {
 
   private first: boolean = true;
 
-  public onEnter(ctx: TestContext): void {
+  public onEnter(ctx: TestContext, _node: TestNode): void {
     const extension = extname(ctx.fileName);
     const dir = dirname(ctx.fileName);
     const base = basename(ctx.fileName, extension);

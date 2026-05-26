@@ -29,7 +29,7 @@ export default class CSVReporter implements IReporter {
   protected output: Stringifier | null = null;
   protected fileName: WriteStream | null = null;
 
-  public onEnter(ctx: TestContext): void {
+  public onEnter(ctx: TestContext, _node: TestNode): void {
     this.output = stringify({ columns: csvColumns });
     const extension = extname(ctx.fileName);
     const dir = dirname(ctx.fileName);
